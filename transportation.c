@@ -54,7 +54,43 @@ tryAgain:
    return parkingTotal;
 }
 
-float taxiFees(int days)
+float taxiFees(float *taxiAllowance, float *taxiExcess, float *taxiSaved)
 {
+   const int TAXI_ALLOWANCE_RATE = 10;
+   char input[1];
+   int taxisTaken;
+   float taxiTotal;
 
+numOfTaxis:
+
+   printf("How many days did you use a taxi during your trip?\n");
+   scanf("%d", &taxisTaken);
+
+   if (taxisTaken < 0)
+   {
+      printf("You have entered an invalid value for the amount of taxis you have taken. Please try again.\n");
+      goto numOfTaxis;
+   }
+
+   if (taxisTaken > 0)
+   {
+   tryAgain:
+      printf("How much did you spend in total on taxis?\n");
+      scanf("%f", &taxiTotal);
+
+      if (taxiTotal < 0)
+      {
+         printf("You have entered an invalid value for the total you spent on taxis. Please try again.\n");
+         goto tryAgain;
+      }
+
+      *taxiAllowance = TAXI_ALLOWANCE_RATE * taxisTaken;
+
+      if (taxiTotal > *taxiAllowance)
+         *taxiExcess = taxiTotal - *taxiAllowance;
+      else if (taxiTotal < *taxiAllowance)
+         *taxiSaved = *taxiAllowance - taxiTotal;
+   }
+
+   return taxiTotal;
 }
