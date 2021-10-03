@@ -1,5 +1,5 @@
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef TRANSPORTATION_H
+#define TRANSPORTATION_H
 
 float miles();
 

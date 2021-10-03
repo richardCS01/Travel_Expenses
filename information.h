@@ -1,5 +1,5 @@
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef INFORMATION_H
+#define INFORMATION_H
 int getTotalDays();
 
 int getTimeOfDeparture();

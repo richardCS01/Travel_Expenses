@@ -1,4 +1,5 @@
 #include "meals.h"
+#include <stdio.h>
 
 float mealFees(int arrivalTime, int departureTime, float *mealAllowance, float *mealExcess, float *mealSaved)
 {

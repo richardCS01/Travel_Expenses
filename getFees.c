@@ -8,18 +8,26 @@ float getConferenceFees() {
    return fees;
 }
 
-float getHotelExpenses(int numOfDays) {
-   const float COMPANY_COVERED = 90.00 * numOfDays;
+float getHotelExpenses(int numOfDays, float *hotelAllowance, float *hotelExcess, float *hotelSaved) {    // make sure to assign these vars in main!
+   const float COMPANY_COVERED = 90.00;
+   
+   tryAgain: ;
+   
    float fees;
-   printf("Enter hotel fees: ");
+   printf("Enter total amount of hotel expenses spent: ");
    scanf("%f", &fees);
-   fees = fees * numOfDays;
-   if(fees <= COMPANY_COVERED) {
-      printf("The company has covered your hotel fees.\n");
-      fees = 0;
+   
+   if(fees < 0) {
+      printf("Expenses cannot be a negative number!\n");
+      goto tryAgain;
    }
-   else {
-      printf("The company has covered $90/night of your hotel fees.\n");
-   }
+   
+   *hotelAllowance = COMPANY_COVERED * numOfDays;
+   
+   if(fees > *hotelAllowance)
+      *hotelExcess = fees - *hotelAllowance;
+   else if(fees < *hotelAllowance)
+      *hotelSaved = *hotelAllowance - fees;
+   
    return fees;
 }
