@@ -3,8 +3,8 @@
 
 float miles();
 
-float parkingFees();
+float parkingFees(int days, float *parkingAllowance, float *parkingExcess, float *parkingSaved);
 
-float taxiFees(int days, double *total);
+float taxiFees(float *taxiAllowance, float *taxiExcess, float *taxiSaved);
 
 #endif
