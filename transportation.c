@@ -28,9 +28,21 @@ float miles()
    return vehicleExpense;
 }
 
-float parkingFees(int numOfDays)
+float parkingFees()
 {
+   float parkingTotal;
 
+tryAgain:
+
+   printf("How much did you spend on parking during your trip?\n");
+   scanf("%f", &parkingTotal);
+
+   if (parkingTotal < 0)
+   {
+      printf("You have entered an invalid value for the total you spent on parking fees. Please try again.\n");
+      goto tryAgain;
+   }
+   return parkingTotal;
 }
 
 float taxiFees(int days, double *total)
