@@ -3,6 +3,6 @@
 
 
 
-float mealFees(int arrivalTime, int departureTime, float *mealAllowance, float *mealExcess, float *mealSaved) //Function Declaration
+float mealFees(int arrivalTime, int departureTime, float *mealAllowance, float *mealExcess, float *mealSaved); //Function Declaration
 
 #endif
