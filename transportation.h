@@ -1,10 +1,10 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-double miles();
+float miles();
 
-double parkingFees();
+float parkingFees();
 
-double taxiFees(int days, double *total);
+float taxiFees(int days, double *total);
 
 #endif
