@@ -9,3 +9,5 @@ int getTimeOfArrival();
 double getAirFare();
 
 double getRentals();
+
+#endif

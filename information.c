@@ -1,5 +1,8 @@
 #include "information.h"
-
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#include<stdbool.h>
 int getTotalDays() {
   int days;
   bool isValid = false;
@@ -7,8 +10,9 @@ int getTotalDays() {
   printf("Enter the total number of days spent on the trip\n");
   scanf("%d", &days);
   isValid = true;
-  if(!(days > 1)) {
+  if(!(days > 0)) {
     isValid = false;
+    printf("Invalid number of days\n");
   }
   }
   return days;
@@ -17,19 +21,19 @@ int getTotalDays() {
 int getTimeOfDeparture() {
   char time[4];
   int timeInt = 0;
-  bool isNotValidTime = false;
-  while(!isNotValidTime) {
+  bool isNotValidTime = true;
+  while(isNotValidTime) {
   printf("Enter the time of departure to the trip in military time example 9:00am = 0900\n");
-  scanf("%c", &time);
-
+  scanf("%s", time);
+  isNotValidTime = false;
    if(strlen(time) != 4) {
      isNotValidTime = true;
-     continue;
    }
    if(time[0] == '0') {
      for(int i = 1; i < 4; i++) {
-       int digit = atoi(time[i]);
-       if(digit > 9 || digit < 0) {
+       int digit = time[i] - '0';
+       if(i == 1 && (digit > 9 || digit < 0)) {
+         printf("is it true %d", digit);
          isNotValidTime = true;
        }
        if(i == 2 && digit > 5) {
@@ -37,12 +41,15 @@ int getTimeOfDeparture() {
        }
      }
    }
+   if(time[0] == '0' && time[1] == '0') {
+     isNotValidTime = true;
+   }
    if(time[0] != '0') {
      if(atoi(time) > 2400 || atoi(time) < 0) {
        isNotValidTime = true;
      }
      for(int i = 0; i < 4; i++) {
-       int digit = atoi(time[i]);
+       int digit = time[i] - '0';
        if(i == 0 && (digit > 2 || digit < 0)) {
          isNotValidTime = true;
        }
@@ -54,17 +61,15 @@ int getTimeOfDeparture() {
        }
      }
    }
-   if(isNotValidTime == true) {
-     isNotValidTime = false;
-   }
    if(isNotValidTime == false) {
      break;
    }
+   printf("Invalid time\n");
   }
   if(time[0] == '0'){
     int x = 100;
     for(int i = 1; i < 4; i++) {
-      timeInt += atoi(time[i]) * x;
+      timeInt += (time[i] - '0') * x;
       x = x / 10;
     }
     return timeInt;
@@ -78,19 +83,19 @@ int getTimeOfDeparture() {
 int getTimeOfArrival() {
   char time[4];
   int timeInt = 0;
-  bool isNotValidTime = false;
-  while(!isNotValidTime) {
+  bool isNotValidTime = true;
+  while(isNotValidTime) {
   printf("Enter the time of arrival to home in military time example 9:00am = 0900\n");
-  scanf("%c", &time);
-
+  scanf("%s", time);
+  isNotValidTime = false;
    if(strlen(time) != 4) {
      isNotValidTime = true;
-     continue;
    }
    if(time[0] == '0') {
      for(int i = 1; i < 4; i++) {
-       int digit = atoi(time[i]);
-       if(digit > 9 || digit < 0) {
+       int digit = time[i] - '0';
+       if(i == 1 && (digit > 9 || digit < 0)) {
+         printf("is it true %d", digit);
          isNotValidTime = true;
        }
        if(i == 2 && digit > 5) {
@@ -98,12 +103,15 @@ int getTimeOfArrival() {
        }
      }
    }
+   if(time[0] == '0' && time[1] == '0') {
+     isNotValidTime = true;
+   }
    if(time[0] != '0') {
      if(atoi(time) > 2400 || atoi(time) < 0) {
        isNotValidTime = true;
      }
      for(int i = 0; i < 4; i++) {
-       int digit = atoi(time[i]);
+       int digit = time[i] - '0';
        if(i == 0 && (digit > 2 || digit < 0)) {
          isNotValidTime = true;
        }
@@ -115,17 +123,15 @@ int getTimeOfArrival() {
        }
      }
    }
-   if(isNotValidTime == true) {
-     isNotValidTime = false;
-   }
    if(isNotValidTime == false) {
      break;
    }
+   printf("Invalid time\n");
   }
   if(time[0] == '0'){
     int x = 100;
     for(int i = 1; i < 4; i++) {
-      timeInt += atoi(time[i]) * x;
+      timeInt += (time[i] - '0') * x;
       x = x / 10;
     }
     return timeInt;
@@ -135,6 +141,7 @@ int getTimeOfArrival() {
   }
   return timeInt;
 }
+
 
 double getAirFare() {
   double fare;
