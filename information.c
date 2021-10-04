@@ -170,9 +170,3 @@ double getRentals() {
   }
   return fare;
 }
-
-int main() {
-   int result = getTimeOfDeparture();
-   printf("your time of depature%d\n", result);
-   return 0;
- }

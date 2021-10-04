@@ -23,7 +23,7 @@ int main() {
    myVehicleExpenses = miles();
    float parkingAllowance, parkingExcess, parkingSaved;
    myParkingFees = parkingFees(myTotalDays, &parkingAllowance, &parkingExcess, &parkingSaved);
-   printf("parkingAllowance = %.2f\nparkingExcess = %.2f\nparkingSaved = %.2f\n", parkingAllowance, parkingExcess, parkingSaved);
+   // printf("parkingAllowance = %.2f\nparkingExcess = %.2f\nparkingSaved = %.2f\n", parkingAllowance, parkingExcess, parkingSaved);
    float taxiAllowance, taxiExcess, taxiSaved;
    myTaxiFees = taxiFees(&taxiAllowance, &taxiExcess, &taxiSaved);
    
@@ -31,22 +31,21 @@ int main() {
    myConferenceFees = getConferenceFees();
    float hotelAllowance, hotelExcess, hotelSaved;
    myHotelExpenses = getHotelExpenses(myTotalDays, &hotelAllowance, &hotelExcess, &hotelSaved);
-   printf("hotelAllowance = %.2f\nhotelExcess = %.2f\nhotelSaved = %.2f\n", hotelAllowance, hotelExcess, hotelSaved);
+   // printf("hotelAllowance = %.2f\nhotelExcess = %.2f\nhotelSaved = %.2f\n", hotelAllowance, hotelExcess, hotelSaved);
    
    // pulling data from meals.c
    float mealAllowance, mealExcess, mealSaved;
-   myMealFees = 1000;
-   // myMealFees = mealFees(myTimeOfArrival, myTimeOfDeparture, &mealAllowance, &mealExcess, &mealSaved);
+   myMealFees = mealFees(myTimeOfArrival, myTimeOfDeparture, &mealAllowance, &mealExcess, &mealSaved);
    
    float totalExpenses = myAirFare + myRentals + myVehicleExpenses + myParkingFees + myTaxiFees + myConferenceFees + myHotelExpenses + myMealFees;
    float allowableExpenses = parkingAllowance + taxiAllowance + hotelAllowance + mealAllowance;
    float totalExcess = parkingExcess + taxiExcess + hotelExcess + mealExcess;
    float totalSaved = parkingSaved + taxiSaved + mealSaved + hotelSaved;
    
-   printf("Total expenses: %.2f\n", totalExpenses);
-   printf("Total allowable expenses: %.2f\n", allowableExpenses);
-   printf("Total excess: %.2f\n", totalExcess);
-   printf("Total saved: %.2f\n", totalSaved);
+   printf("Total expenses: $%.2f\n", totalExpenses);
+   printf("Total allowable expenses: $%.2f\n", allowableExpenses);
+   printf("Total excess: $%.2f\n", totalExcess);
+   printf("Total saved: $%.2f\n", totalSaved);
    
    return 0;
 }
