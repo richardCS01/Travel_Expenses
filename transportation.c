@@ -15,7 +15,7 @@ float miles()
 
    if (input[0] == 'Y' || input[0] == 'y')
    {
-      printf("How many miles did you drive?\n");
+      printf("Enter the amount of miles driven: ");
       scanf("%d", &milesDriven);
 
       if (milesDriven < 0)
@@ -36,7 +36,7 @@ float parkingFees(int days, float *parkingAllowance, float *parkingExcess, float
 
 tryAgain:
 
-   printf("How much did you spend on parking during your trip?\n");
+   printf("Enter the amount you spent on parking: ");
    scanf("%f", &parkingTotal);
 
    if (parkingTotal < 0)
@@ -64,7 +64,7 @@ float taxiFees(float *taxiAllowance, float *taxiExcess, float *taxiSaved)
 
 numOfTaxis:
 
-   printf("How many days did you use a taxi during your trip?\n");
+   printf("Enter the amount of days you used a taxi during your trip: ");
    scanf("%d", &taxisTaken);
 
    if (taxisTaken < 0)
@@ -76,7 +76,7 @@ numOfTaxis:
    if (taxisTaken > 0)
    {
    tryAgain:
-      printf("How much did you spend in total on taxis?\n");
+      printf("Enter the amount you spent on taxis: ");
       scanf("%f", &taxiTotal);
 
       if (taxiTotal < 0)
