@@ -89,7 +89,8 @@ int getTimeOfArrival() {
   printf("Enter the time of arrival to home in military time example 9:00am = 0900\n");
   scanf("%s", time);
   isNotValidTime = false;
-   if(strlen(time) != 4) {
+   int length = strlen(time);
+   if(length != 4) {
      isNotValidTime = true;
    }
    if(time[0] == '0') {
