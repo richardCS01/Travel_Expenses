@@ -2,9 +2,17 @@
 #include <stdio.h>
 
 float getConferenceFees() {
+   tryAgain: ;
+
    float fees;
    printf("Enter any conference/seminar fees: ");
    scanf("%f", &fees);
+
+   if(fees < 0) {
+      printf("Fees cannot be a negative value!\n");
+      goto tryAgain;
+   }
+
    return fees;
 }
 
