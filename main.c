@@ -42,7 +42,7 @@ int main() {
    float totalExcess = parkingExcess + taxiExcess + hotelExcess + mealExcess;
    float totalSaved = parkingSaved + taxiSaved + mealSaved + hotelSaved;
    
-   printf("Total expenses: $%.2f\n", totalExpenses);
+   printf("\nTotal expenses: $%.2f\n", totalExpenses);
    printf("Total allowable expenses: $%.2f\n", allowableExpenses);
    printf("Total excess: $%.2f\n", totalExcess);
    printf("Total saved: $%.2f\n", totalSaved);
